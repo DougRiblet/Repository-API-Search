@@ -1,24 +1,19 @@
 import React, { useState } from 'react';
-import { Octokit } from '@octokit/rest';
 import Main from './Main.jsx';
 import Detail from './Detail.jsx';
+import searchGithubApi from '../utils/searchGithubApi.js';
 
 export default function App() {
   const [page, setPage] = useState('main');
   const [results, setResults] = useState([]);
 
-  const fetchRepos = async (searchterm) => {
-    const fetchedData = await Octokit.request('GET /search/repositories', {
-      q: searchterm,
-      per_page: 4,
-    });
-    console.log('fetched: ', fetchedData);
-    setResults(fetchedData);
+  const fetchRepos = async (searchTerm) => {
+    const newResults = await searchGithubApi(searchTerm, 'JavaScript', null);
+    setResults(newResults);
   };
 
   return (
     <div>
-      <h1>Home Page</h1>
       <div>
         {(page === 'detail') && (
           <Detail />
