@@ -29,6 +29,8 @@ const searchGithubApi = async (searchTerm, langFilter, sortOption) => {
     url: item.url,
   }));
 
+  console.log('fetched: ', culledData);
+
   return culledData;
 };
 

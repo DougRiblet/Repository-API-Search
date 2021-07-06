@@ -7,14 +7,21 @@ export default function App() {
   const [page, setPage] = useState('main');
   const [results, setResults] = useState([]);
 
-  const fetchRepos = async (searchTerm) => {
-    const newResults = await searchGithubApi(searchTerm, 'JavaScript', null);
+  const fetchRepos = async (searchTerm, langFilter, sortOption) => {
+    const newResults = await searchGithubApi(searchTerm, langFilter, sortOption);
     setResults(newResults);
   };
 
   return (
     <div>
-      <div>
+      <header>
+        <div className='header-container'>
+          <div className='header-title'>
+            Search Github Repositories
+          </div>
+        </div>
+      </header>
+      <main>
         {(page === 'detail') && (
           <Detail />
         )}
@@ -24,7 +31,7 @@ export default function App() {
             results={results}
           />
         )}
-      </div>
+      </main>
     </div>
   );
 }
