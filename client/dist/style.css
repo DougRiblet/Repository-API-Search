@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 body, div, header, main {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", Verdana, Helvetica, Arial, sans-serif;
 }
 
 .header-container {
@@ -12,7 +14,7 @@ body, div, header, main {
 
 .header-title {
   color: white;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 8px 16px;
   text-align: left;
@@ -26,16 +28,27 @@ body, div, header, main {
 }
 
 .search-form {
-  max-width: 1200px;
+  max-width: 1000px;
   color: white;
   margin: 0 auto;
   padding: 8px;
   display: grid;
   column-gap: 16px;
-  grid-template-columns: repeat(4, 1fr);
+  row-gap: 12px;
+  grid-template-columns: 3fr 3fr 2fr 1fr;
 }
 .search-form div {
   text-align: left;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .search-form {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .search-form {
+    grid-template-columns: 1fr;
+  }
 }
 
 .radio {
@@ -57,7 +70,22 @@ body, div, header, main {
   grid-template-columns: repeat(6, 1fr);
   text-align: center;
   padding: 16px;
-  margin: 0 auto;
+  margin: 16px auto;
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .results-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .results-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .result {
@@ -67,6 +95,8 @@ body, div, header, main {
 }
 .result h4, .result p {
   text-align: left;
+  max-width: 288px;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */

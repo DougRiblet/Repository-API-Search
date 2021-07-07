@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import limitDescription from '../utils/limitDescription.js';
 
 export default function Main({ fetchRepos, results }) {
   const [searchterm, setSearchterm] = useState('');
@@ -75,7 +76,7 @@ export default function Main({ fetchRepos, results }) {
           {results && results.map((item) => (
             <div className='result' key={item.id}>
               <h4>{item.name}</h4>
-              <p>{item.description}</p>
+              <p>{limitDescription(item.description)}</p>
             </div>
           ))}
         </div>
