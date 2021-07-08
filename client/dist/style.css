@@ -21,7 +21,7 @@ body, div, header, main {
 }
 
 .search-container {
-  background-color: #444;
+  background-color: teal;
   width: 100%;
   margin: 0;
   text-align: center;
@@ -31,28 +31,83 @@ body, div, header, main {
   max-width: 1000px;
   color: white;
   margin: 0 auto;
-  padding: 8px;
+  padding: 16px;
   display: grid;
-  column-gap: 16px;
-  row-gap: 12px;
-  grid-template-columns: 3fr 3fr 2fr 1fr;
+  gap: 16px;
+  grid-template-columns: 3fr 3fr 2fr 2fr;
+  grid-template-areas: "term language sort submit";
+  place-items: end start;
 }
 .search-form div {
   text-align: left;
 }
+.search-form .term {
+  grid-area: term;
+}
+.search-form .language {
+  grid-area: language;
+}
+.search-form .sort {
+  grid-area: sort;
+}
+.search-form .submit-button {
+  grid-area: submit;
+}
+.search-form .submit-button input[type=submit] {
+  border: none;
+  border-radius: 6px;
+  box-shadow: none;
+  width: 140px;
+  height: 40px;
+  color: white;
+  background-color: darkorange;
+  cursor: pointer;
+  font-size: 100%;
+}
+.search-form .submit-button input[type=submit]:disabled {
+  background-color: #888;
+  color: #ccc;
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .search-form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "term sort" "language submit";
+  }
+}
 @media (min-width: 481px) and (max-width: 768px) {
   .search-form {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "term" "language" "sort" "submit";
   }
 }
 @media (max-width: 480px) {
   .search-form {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "term" "language" "sort" "submit";
   }
+}
+
+label, .sort-radio-header {
+  font-size: 75%;
+  font-style: italic;
+}
+
+input[type=text] {
+  display: block;
+  margin-top: 4px;
+  padding: 4px;
+  min-width: 200px;
 }
 
 .radio {
   display: inline;
+}
+.radio label {
+  font-size: 100%;
+  font-style: normal;
 }
 
 .results-container {
@@ -67,14 +122,15 @@ body, div, header, main {
   display: grid;
   column-gap: 16px;
   row-gap: 16px;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
   text-align: center;
   padding: 16px;
   margin: 16px auto;
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .results-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (min-width: 481px) and (max-width: 768px) {
@@ -91,9 +147,10 @@ body, div, header, main {
 .result {
   border: 1px solid #aaa;
   border-radius: 10px;
+  background-color: #ccf4e7;
   padding: 10px;
 }
-.result h4, .result p {
+.result h3, .result p {
   text-align: left;
   max-width: 288px;
   overflow: hidden;

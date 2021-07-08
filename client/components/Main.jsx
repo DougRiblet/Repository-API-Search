@@ -66,7 +66,11 @@ export default function Main({ fetchRepos, results }) {
               </div>
             </div>
             <div className='submit-button'>
-              <input type='submit' value='Submit' />
+              <input
+                type='submit'
+                value='Search Github'
+                disabled={searchterm.length === 0}
+              />
             </div>
           </div>
         </form>
@@ -75,8 +79,9 @@ export default function Main({ fetchRepos, results }) {
         <div className='results-grid'>
           {results && results.map((item) => (
             <div className='result' key={item.id}>
-              <h4>{item.name}</h4>
+              <h3>{item.name}</h3>
               <p>{limitDescription(item.description)}</p>
+              <p>&#9733; {item.stars}</p>
             </div>
           ))}
         </div>
