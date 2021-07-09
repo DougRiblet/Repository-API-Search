@@ -20,13 +20,15 @@ const searchGithubApi = async (searchTerm, langFilter, sortOption) => {
   const culledData = fetchedData.data.items.map((item) => ({
     id: item.id,
     name: item.name,
-    owner: item.owner.login,
-    description: item.description,
-    stars: item.stargazers_count,
-    language: item.language,
-    created: item.created_at,
-    updated: item.updated_at,
-    url: item.url,
+    owner: item.owner.login || '',
+    description: item.description || '',
+    stars: item.stargazers_count || 0,
+    forks: item.forks || 0,
+    issues: item.open_issues || 0,
+    language: item.language || '',
+    created: item.created_at || '',
+    updated: item.updated_at || '',
+    url: item.html_url || '',
   }));
 
   console.log('fetched: ', culledData);

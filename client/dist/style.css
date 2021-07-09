@@ -149,13 +149,19 @@ input[type=text] {
   border-radius: 10px;
   background-color: #cce4da;
   padding: 10px;
+  text-align: left;
 }
 .result h3, .result p {
   text-align: left;
   max-width: 288px;
   overflow: hidden;
 }
-.result h3 {
+.result button {
+  background-color: teal;
+  color: white;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -173,6 +179,7 @@ input[type=text] {
   background: white;
   width: 620px;
   height: auto;
+  border-radius: 6px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -180,8 +187,9 @@ input[type=text] {
 .modal-container button {
   background-color: teal;
   color: white;
-  width: 200px;
-  height: 40;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
 .modal-container .detail-display {

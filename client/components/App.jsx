@@ -18,12 +18,12 @@ export default function App() {
     const selectedRepo = results.filter((el) => el.id === repoId)[0];
     setDetail(selectedRepo);
     setShowModal(true);
-  }
+  };
 
   const handleCloseModal = () => {
     setShowModal(false);
     setDetail({});
-  }
+  };
 
   return (
     <div>
