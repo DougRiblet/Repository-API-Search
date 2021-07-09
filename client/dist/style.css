@@ -147,13 +147,67 @@ input[type=text] {
 .result {
   border: 1px solid #aaa;
   border-radius: 10px;
-  background-color: #ccf4e7;
+  background-color: #cce4da;
   padding: 10px;
 }
 .result h3, .result p {
   text-align: left;
   max-width: 288px;
   overflow: hidden;
+}
+.result h3 {
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-container {
+  position: fixed;
+  background: white;
+  width: 620px;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal-container button {
+  background-color: teal;
+  color: white;
+  width: 200px;
+  height: 40;
+  cursor: pointer;
+}
+.modal-container .detail-display {
+  padding: 16px;
+}
+.modal-container .detail-display ul {
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .modal-container {
+    width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  .modal-container {
+    width: 90%;
+  }
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

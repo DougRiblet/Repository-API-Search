@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import Main from './Main.jsx';
+import Search from './Search.jsx';
 import Detail from './Detail.jsx';
+import Results from './Results.jsx';
 import searchGithubApi from '../utils/searchGithubApi.js';
 
 export default function App() {
-  const [page, setPage] = useState('main');
+  const [showModal, setShowModal] = useState(false);
   const [results, setResults] = useState([]);
   const [detail, setDetail] = useState({});
 
@@ -16,22 +17,31 @@ export default function App() {
   const showDetail = (repoId) => {
     const selectedRepo = results.filter((el) => el.id === repoId)[0];
     setDetail(selectedRepo);
-    setPage('detail');
+    setShowModal(true);
+  }
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setDetail({});
   }
 
   return (
     <div>
       <main>
-        {(page === 'detail') && (
-          <Detail repo={detail} />
-        )}
-        {(page === 'main') && (
-          <Main
+        <div>
+          <Search
             fetchRepos={fetchRepos}
-            results={results}
           />
-        )}
+          <Results
+            results={results}
+            showDetail={showDetail}
+          />
+          <Detail
+            repo={detail}
+            showModal={showModal}
+            handleCloseModal={handleCloseModal}
+          />
+        </div>
       </main>
     </div>
   );
