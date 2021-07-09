@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import limitDescription from '../utils/limitDescription.js';
 
-export default function Results({ results, showDetail }) {
+export default function Results({ results, error, showDetail }) {
   return (
     <div className="results-container">
+      {error && (
+        <div className="results-error">
+          <p>{error}</p>
+        </div>
+      )}
       <div className="results-grid">
         {results && results.map((item) => (
           <div className="result" key={item.id}>

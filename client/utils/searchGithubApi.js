@@ -17,6 +17,12 @@ const searchGithubApi = async (searchTerm, langFilter, sortOption) => {
     ...sortObj,
   });
 
+  if (fetchedData.status !== 200) {
+    return { error: 'Search encountered error. Please try again.' }
+  } else if (fetchedData.data.items.length === 0) {
+    return { error: 'Zero results found. Please try again.'}
+  }
+
   const culledData = fetchedData.data.items.map((item) => ({
     id: item.id,
     name: item.name,
@@ -30,8 +36,6 @@ const searchGithubApi = async (searchTerm, langFilter, sortOption) => {
     updated: item.updated_at || '',
     url: item.html_url || '',
   }));
-
-  console.log('fetched: ', culledData);
 
   return culledData;
 };

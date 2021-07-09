@@ -117,6 +117,12 @@ input[type=text] {
   text-align: center;
 }
 
+.results-error {
+  text-align: center;
+  padding: 16px;
+  margin: 8px auto;
+}
+
 .results-grid {
   max-width: 1200px;
   display: grid;
