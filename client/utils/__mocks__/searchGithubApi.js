@@ -1,6 +1,6 @@
 const dummyResults = [{
   id: 111,
-  name: 'Code',
+  name: 'Selected Repo',
   owner: 'Owner',
   description: 'Stuff',
   stars: 4,

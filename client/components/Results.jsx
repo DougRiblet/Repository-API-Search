@@ -6,7 +6,7 @@ function Results({ results, error, showDetail }) {
   return (
     <div className="results-container">
       {error && (
-        <div className="results-error">
+        <div className="results-error" role="alert">
           <p>{error}</p>
         </div>
       )}

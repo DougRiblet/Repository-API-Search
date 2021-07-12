@@ -5,7 +5,7 @@ import limitDescription from '../utils/limitDescription.js';
 function Detail({ repo, showModal, handleCloseModal }) {
   const onOffClass = showModal ? 'modal display-block' : 'modal display-none';
   return (
-    <div className={onOffClass}>
+    <div className={onOffClass} role="document">
       <div className="modal-container">
         <button
           id="close-modal-button"

@@ -111,6 +111,7 @@ exports[`App Snapshot App component matches snapshot 1`] = `
       </div>
       <div
         className="modal display-none"
+        role="document"
       >
         <div
           className="modal-container"
