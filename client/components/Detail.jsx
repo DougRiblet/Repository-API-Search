@@ -7,7 +7,11 @@ function Detail({ repo, showModal, handleCloseModal }) {
   return (
     <div className={onOffClass}>
       <div className="modal-container">
-        <button type="button" onClick={handleCloseModal}>
+        <button
+          id="close-modal-button"
+          type="button"
+          onClick={handleCloseModal}
+        >
           Back to Search Results
         </button>
         <div className="detail-display">

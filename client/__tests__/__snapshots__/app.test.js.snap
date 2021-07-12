@@ -115,6 +115,7 @@ exports[`App Snapshot App component matches snapshot 1`] = `
           className="modal-container"
         >
           <button
+            id="close-modal-button"
             onClick={[Function]}
             type="button"
           >

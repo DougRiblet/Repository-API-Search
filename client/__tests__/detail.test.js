@@ -1,5 +1,6 @@
 import React from "react";
 import { create } from "react-test-renderer";
+import { render, fireEvent, screen } from '@testing-library/react';
 
 import Detail from "../components/Detail.jsx";
 
@@ -18,16 +19,27 @@ describe("Detail component", () =>{
     )).toHaveLength(0);
   });
   test("Renders correctly with showModal true", () => {
-    const instanceModalHidden = create(<Detail
+    const instanceModalShown = create(<Detail
       repo={{}}
       handleCloseModal={() => {}}
       showModal={true}
     />).root;
-    expect(instanceModalHidden.findAllByProps(
+    expect(instanceModalShown.findAllByProps(
       {className: "modal display-none"}
     )).toHaveLength(0);
-    expect(instanceModalHidden.findAllByProps(
+    expect(instanceModalShown.findAllByProps(
       {className: "modal display-block"}
     )).toHaveLength(1);
   });
-})
+  test("Clicking close button calls handleCloseModal", () => {
+    const mockCloseModal = jest.fn();
+    const { getByRole } = render(<Detail
+      repo={{}}
+      handleCloseModal={mockCloseModal}
+      showModal={true}
+    />);
+    const button = getByRole("button", {id: "close-modal-button"});
+    fireEvent.click(button);
+    expect(mockCloseModal).toHaveBeenCalled();
+  });
+});
