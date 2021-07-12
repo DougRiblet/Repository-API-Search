@@ -11,12 +11,16 @@ function Results({ results, error, showDetail }) {
         </div>
       )}
       <div className="results-grid">
-        {results && results.map((item) => (
+        {results && results.length > 0 && results.map((item) => (
           <div className="result" key={item.id}>
             <h3>{item.name}</h3>
             <p>{limitDescription(item.description)}</p>
             <p>&#9733; {item.stars}</p>
-            <button type="button" onClick={() => showDetail(item.id)}>
+            <button
+              className="more-info"
+              type="button"
+              onClick={() => showDetail(item.id)}
+            >
               More Info
             </button>
           </div>
