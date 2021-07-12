@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import limitDescription from '../utils/limitDescription.js';
 
-export default function Results({ results, error, showDetail }) {
+function Results({ results, error, showDetail }) {
   return (
     <div className="results-container">
       {error && (
@@ -42,3 +42,5 @@ Results.propTypes = {
     url: PropTypes.string.isRequired,
   })).isRequired,
 };
+
+export default Results;

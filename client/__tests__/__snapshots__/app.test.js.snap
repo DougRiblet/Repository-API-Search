@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Snapshot App component matches snapshot 1`] = `
+<div>
+  <main>
+    <div>
+      <div
+        className="search-container"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="search-form"
+          >
+            <div
+              className="term"
+            >
+              <label
+                htmlFor="search-text"
+              >
+                Search Term (required)
+                <input
+                  id="search-text"
+                  onChange={[Function]}
+                  type="text"
+                  value=""
+                />
+              </label>
+            </div>
+            <div
+              className="language"
+            >
+              <label
+                htmlFor="lang-text"
+              >
+                Filter by Language (optional)
+                <input
+                  id="lang-text"
+                  onChange={[Function]}
+                  type="text"
+                  value=""
+                />
+              </label>
+            </div>
+            <div
+              className="sort"
+            >
+              <div
+                className="sort-radio-header"
+              >
+                Sort Results By
+              </div>
+              <div
+                className="radio-choices"
+              >
+                <div
+                  className="radio"
+                >
+                  <label
+                    htmlFor="default-radio"
+                  >
+                    <input
+                      checked={true}
+                      id="default-radio"
+                      onChange={[Function]}
+                      type="radio"
+                      value="default"
+                    />
+                    Default
+                  </label>
+                </div>
+                <div
+                  className="radio"
+                >
+                  <label
+                    htmlFor="stars-radio"
+                  >
+                    <input
+                      checked={false}
+                      id="stars-radio"
+                      onChange={[Function]}
+                      type="radio"
+                      value="stars"
+                    />
+                    Stars
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              className="submit-button"
+            >
+              <input
+                disabled={true}
+                type="submit"
+                value="Search Github"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div
+        className="results-container"
+      >
+        
+        <div
+          className="results-grid"
+        />
+      </div>
+      <div
+        className="modal display-none"
+      >
+        <div
+          className="modal-container"
+        >
+          <button
+            onClick={[Function]}
+            type="button"
+          >
+            Back to Search Results
+          </button>
+          <div
+            className="detail-display"
+          >
+            <h2 />
+            <ul
+              className="detail-list"
+            >
+              <li>
+                owner: 
+              </li>
+              <li>
+                language: 
+              </li>
+              <li>
+                created: 
+              </li>
+              <li>
+                updated: 
+              </li>
+              <li>
+                open issues: 
+              </li>
+              <li>
+                forks: 
+              </li>
+            </ul>
+            <p>
+              
+            </p>
+            <p>
+              ★ 
+            </p>
+            <p>
+              <a>
+                View Repo at Github
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import limitDescription from '../utils/limitDescription.js';
 
-export default function Detail({ repo, showModal, handleCloseModal }) {
+function Detail({ repo, showModal, handleCloseModal }) {
   const onOffClass = showModal ? 'modal display-block' : 'modal display-none';
   return (
     <div className={onOffClass}>
@@ -35,19 +35,39 @@ export default function Detail({ repo, showModal, handleCloseModal }) {
 }
 
 Detail.propTypes = {
-  showModal: PropTypes.func.isRequired,
+  showModal: PropTypes.bool.isRequired,
   handleCloseModal: PropTypes.func.isRequired,
   repo: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    owner: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    stars: PropTypes.number.isRequired,
-    forks: PropTypes.number.isRequired,
-    issues: PropTypes.number.isRequired,
-    language: PropTypes.string.isRequired,
-    created: PropTypes.string.isRequired,
-    updated: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    owner: PropTypes.string,
+    description: PropTypes.string,
+    stars: PropTypes.number,
+    forks: PropTypes.number,
+    issues: PropTypes.number,
+    language: PropTypes.string,
+    created: PropTypes.string,
+    updated: PropTypes.string,
+    url: PropTypes.string,
+  }),
 };
+
+Detail.defaultProps = {
+  showModal: false,
+  handleCloseModal: () => {},
+  repo: {
+    id: 0,
+    name: '',
+    owner: '',
+    description: '',
+    stars: 0,
+    forks: 0,
+    issues: 0,
+    language: '',
+    created: '',
+    updated: '',
+    url: '',
+  },
+};
+
+export default Detail;
