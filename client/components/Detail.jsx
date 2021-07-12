@@ -57,8 +57,6 @@ Detail.propTypes = {
 };
 
 Detail.defaultProps = {
-  showModal: false,
-  handleCloseModal: () => {},
   repo: {
     id: 0,
     name: '',

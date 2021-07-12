@@ -27,6 +27,7 @@ function Results({ results, error, showDetail }) {
 }
 
 Results.propTypes = {
+  error: PropTypes.string,
   showDetail: PropTypes.func.isRequired,
   results: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -41,6 +42,10 @@ Results.propTypes = {
     updated: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
   })).isRequired,
+};
+
+Results.defaultProps = {
+  error: '',
 };
 
 export default Results;

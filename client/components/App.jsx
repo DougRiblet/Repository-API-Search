@@ -7,7 +7,7 @@ import searchGithubApi from '../utils/searchGithubApi.js';
 export default function App() {
   const [showModal, setShowModal] = useState(false);
   const [results, setResults] = useState([]);
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
   const [detail, setDetail] = useState({});
 
   const fetchRepos = async (searchTerm, langFilter, sortOption) => {
@@ -19,7 +19,6 @@ export default function App() {
       setResults([]);
       setError(newResults.error);
     }
-
   };
 
   const showDetail = (repoId) => {
