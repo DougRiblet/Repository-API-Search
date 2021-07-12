@@ -5,11 +5,11 @@ const octokit = new Octokit();
 const searchGithubApi = async (searchTerm, langFilter, sortOption) => {
   const langString = langFilter === 'All' ? '' : ` language:${langFilter}`;
   const queryString = `${searchTerm}${langString}`;
-  
+
   const sortObj = {};
   if (sortOption === 'stars') {
-    sortObj.sort = 'stars'
-  };
+    sortObj.sort = 'stars';
+  }
 
   const fetchedData = await octokit.request('GET /search/repositories', {
     q: queryString,
@@ -18,9 +18,10 @@ const searchGithubApi = async (searchTerm, langFilter, sortOption) => {
   });
 
   if (fetchedData.status !== 200) {
-    return { error: 'Search encountered error. Please try again.' }
-  } else if (fetchedData.data.items.length === 0) {
-    return { error: 'Zero results found. Please try again.'}
+    return { error: 'Search encountered error. Please try again.' };
+  }
+  if (fetchedData.data.items.length === 0) {
+    return { error: 'Zero results found. Please try again.' };
   }
 
   const culledData = fetchedData.data.items.map((item) => ({

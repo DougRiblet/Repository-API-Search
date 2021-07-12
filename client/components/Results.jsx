@@ -10,9 +10,9 @@ function Results({ results, error, showDetail }) {
           <p>{error}</p>
         </div>
       )}
-      <div className="results-grid">
+      <div className="results-grid" role="grid">
         {results && results.length > 0 && results.map((item) => (
-          <div className="result" key={item.id}>
+          <div className="result" key={item.id} role="gridcell">
             <h3>{item.name}</h3>
             <p>{limitDescription(item.description)}</p>
             <p>&#9733; {item.stars}</p>

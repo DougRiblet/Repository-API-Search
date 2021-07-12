@@ -2,11 +2,11 @@
   "name": "react-basic",
   "version": "1.0.0",
   "description": "basic React app",
-  "main": "client/index.js",
+  "main": "client/index.jsx",
   "scripts": {
     "test": "jest",
     "start": "nodemon server/server.cjs",
-    "lint": "eslint --ext .jsx,.cjs client server",
+    "lint": "eslint --ext .jsx,.cjs,.js client server",
     "sass": "sass client/sass/style.scss client/dist/style.css",
     "build": "webpack --config webpack.config.cjs"
   },
